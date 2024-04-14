@@ -2,7 +2,7 @@ from fastapi import FastAPI
 import databases
 import psycopg2
 
-connect = psycopg2.connect(host='postgresql-delavore.alwaysdata.net', user='user', password='passwd', dbname='delavore_db')
+connect = psycopg2.connect(host='postgresql-delavore.alwaysdata.net', user=USER, password=PASSWD, dbname='delavore_db')
 cursor = connect.cursor()
 
 app = FastAPI()
