@@ -21,14 +21,14 @@ async def startup():
     #await database.connect()
     pass
 
-
+'''
 @app.on_event("shutdown")
 async def shutdown():
     # когда приложение останавливается разрываем соединение с БД
     #await database.disconnect()
     cursor.close()
     connect.close()
-
+'''
 
 @app.get("/")
 async def root():
@@ -45,6 +45,6 @@ async def get_items():
     a = cursor.execute("SELECT * FROM users")
     #print("here")
     row = cursor.fetchone()
-    cursor.close()
-    connect.close()
+    #cursor.close()
+    #connect.close()
     return row
