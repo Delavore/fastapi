@@ -33,13 +33,12 @@ async def shutdown():
 
 @app.get("/")
 async def root():
-    #a = cursor.execute("SELECT * FROM test")
+    a = cursor.execute("SELECT * FROM test")
     #print("here")
-    #row = cursor.fetchone()
+    row = cursor.fetchall()
     #cursor.close()
     #connect.close()
-    #return row
-    pass
+    return row
 
 
 @app.get("/items")
