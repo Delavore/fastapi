@@ -1,8 +1,16 @@
 from fastapi import FastAPI
 import databases
 import psycopg2
+from dotenv import find_dotenv, load_dotenv
+import os
 
-connect = psycopg2.connect(host='postgresql-delavore.alwaysdata.net', user=USER, password=PASSWD, dbname='delavore_db')
+# env var
+dotenv_path = find_dotenv()
+load_dotenv(dotenv_path)
+User = os.getenv("USER")
+Password = os.getenv("PASSWD")
+
+connect = psycopg2.connect(host='postgresql-delavore.alwaysdata.net', user=User, password=Password, dbname='delavore_db')
 cursor = connect.cursor()
 
 app = FastAPI()
