@@ -33,7 +33,7 @@ async def shutdown():
 
 @app.get("/")
 async def root():
-    a = cursor.execute("SELECT * FROM test")
+    a = cursor.execute("SELECT * FROM test2")
     #print("here")
     row = cursor.fetchall()
     #cursor.close()
@@ -43,7 +43,7 @@ async def root():
 
 @app.get("/items")
 async def get_items():
-    a = cursor.execute("SELECT * FROM test")
+    a = cursor.execute("SELECT * FROM test2")
     #print("here")
     row = cursor.fetchall()
     #cursor.close()
