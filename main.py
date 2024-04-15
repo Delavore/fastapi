@@ -8,7 +8,7 @@ from pydantic import BaseModel
 
 class Item(BaseModel):
     username: str
-    Password: str
+    password: str
     #price: float
     #tax: Union[float, None] = None
 
