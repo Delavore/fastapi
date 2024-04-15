@@ -4,6 +4,14 @@ import psycopg2
 from dotenv import find_dotenv, load_dotenv
 import os
 import psycopg2.extras
+from pydantic import BaseModel
+
+class Item(BaseModel):
+    username: str
+    Password: str
+    #price: float
+    #tax: Union[float, None] = None
+
 
 # env var
 dotenv_path = find_dotenv()
@@ -49,3 +57,7 @@ async def get_items():
     #cursor.close()
     #connect.close()
     return row
+
+@app.get("/users/me")
+def read(item: Item):
+    return {item.username: "wor"}
