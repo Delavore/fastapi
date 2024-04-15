@@ -60,10 +60,20 @@ async def get_items():
 
 @app.post("/users/me")
 async def read(item: Item):
-    a = cursor.execute("SELECT * FROM test2")
-    #print("here")
-    row = cursor.fetchall()
-    #cursor.close()
-    #connect.close()
-    return row
-    # return {item.username: "wor"}
+    if item.username == "dela":
+        a = cursor.execute("SELECT * FROM test2")
+        #print("here")
+        row = cursor.fetchall()
+        #cursor.close()
+        #connect.close()
+        return row
+    else:
+        a = cursor.execute("SELECT * FROM test2")
+        #print("here")
+        row = cursor.fetchone()
+        x = list()
+        x.append(row)
+        x.append(row)
+        #cursor.close()
+        #connect.close()
+        return x
