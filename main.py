@@ -58,7 +58,7 @@ async def get_items():
     #connect.close()
     return row
 
-@app.get("/users/me")
+@app.post("/users/me")
 async def read(item: Item):
     a = cursor.execute("SELECT * FROM test2")
     #print("here")
