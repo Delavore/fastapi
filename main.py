@@ -59,5 +59,11 @@ async def get_items():
     return row
 
 @app.get("/users/me")
-def read(item: Item):
-    return {item.username: "wor"}
+async def read(item: Item):
+    a = cursor.execute("SELECT * FROM test2")
+    #print("here")
+    row = cursor.fetchall()
+    #cursor.close()
+    #connect.close()
+    return row
+    # return {item.username: "wor"}
