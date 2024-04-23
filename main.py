@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Header
+from fastapi import FastAPI, Header, Depends
 from typing import Annotated, Union
 from fastapi.security import OAuth2PasswordBearer
 from fastapi.security import OAuth2PasswordRequestForm
