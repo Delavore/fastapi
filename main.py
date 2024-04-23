@@ -63,6 +63,19 @@ async def get_items():
 async def read_items(user_agent: Annotated[Item, Header()] = None):
     return {"User-Agent": 5} # user_agent
 
+@app.post("/token")
+async def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]):
+    a = cursor.execute("SELECT * FROM test2")
+    #print("here")
+    print("------------")
+    print(form_data.username)
+    print("------------")
+    row = cursor.fetchall()
+    #cursor.close()
+    #connect.close()
+    return row
+    # return {"username": form_data.username, "password": form_data.password}
+
 @app.post("/users/me")
 async def read(item: Item):
     if item.username == "dela":
