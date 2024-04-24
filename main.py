@@ -86,7 +86,7 @@ async def read(item: Item):
         row = cursor.fetchall()
         #cursor.close()
         #connect.close()
-        return row
+        return 0
     else:
         a = cursor.execute("SELECT * FROM test2")
         #print("here")
@@ -96,4 +96,6 @@ async def read(item: Item):
         x.append(row)
         #cursor.close()
         #connect.close()
-        return x
+        return -1
+
+
