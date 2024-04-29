@@ -9,6 +9,8 @@ import os
 import psycopg2.extras
 from pydantic import BaseModel
 
+oauth_scheme = OAuth2PasswordBearer("token")
+
 class Item(BaseModel):
     username: str
     password: str
@@ -66,6 +68,18 @@ async def get_items():
 #    return {"User-Agent": 5} # user_agent
 
 @app.post("/token")
+async def generate(form_data: OAuth2PasswordRequestForm = Depends()):
+    print(form_data)
+    return {"access_token": form_data.username, "token_type": "bearer"}
+
+@app.get("/users/self")
+async def myself(token: str = Depends(oauth_scheme)):
+    print("here")
+    return 1001
+   
+
+
+@app.post("/ton")
 async def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]):
     a = cursor.execute("SELECT * FROM test2")
     #print("here")
