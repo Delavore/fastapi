@@ -1,6 +1,4 @@
-# from connection import *
 from crud import *
-#from . import crud
 from fastapi import FastAPI, Depends
 
 app = FastAPI()
@@ -11,6 +9,16 @@ def get_db():
         yield db
     finally:
         db.close()
+
+@app.post("/login")
+async def loginF(item: Item, db: Session = Depends(get_db)):
+    result = login(db, item)
+    return result
+
+@app.post("/register")
+async def registerF(item: Item, db: Session = Depends(get_db)):
+    result = register(db, item)
+    return result
 
 '''
 @app.post("/login/")
@@ -28,13 +36,3 @@ async def myself(token: str = Depends(oauth_scheme)):
     print("here")
     return 1001
 '''
-
-@app.post("/login")
-async def loginF(item: Item, db: Session = Depends(get_db)):
-    result = login(db, item)
-    return result
-
-@app.post("/register")
-async def registerF(item: Item, db: Session = Depends(get_db)):
-    result = register(db, item)
-    return result
