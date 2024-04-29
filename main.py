@@ -1,0 +1,40 @@
+# from connection import *
+from crud import *
+#from . import crud
+from fastapi import FastAPI, Depends
+
+app = FastAPI()
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+'''
+@app.post("/login/")
+async def read_users(db: Session = Depends(get_db), username: str = "", password: str = ""):
+    result = login(db, username, password)
+    return result
+
+@app.post("/token")
+async def generate(form_data: OAuth2PasswordRequestForm = Depends()):
+    print(form_data)
+    return {" token": form_data.username, "token_type": "Bearer"}
+
+@app.get("/users/self")
+async def myself(token: str = Depends(oauth_scheme)):
+    print("here")
+    return 1001
+'''
+
+@app.post("/login")
+async def loginF(item: Item, db: Session = Depends(get_db)):
+    result = login(db, item)
+    return result
+
+@app.post("/register")
+async def registerF(item: Item, db: Session = Depends(get_db)):
+    result = register(db, item)
+    return result

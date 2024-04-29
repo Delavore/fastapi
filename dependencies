@@ -1,0 +1,7 @@
+psycopg2
+asyncpg
+databases
+uvicorn
+fastapi
+python-dotenv
+python-multipart
