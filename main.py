@@ -29,6 +29,12 @@ async def getBooksF(db: Session = Depends(get_db)):
 async def insertBookF(book: Book, db: Session = Depends(get_db)):
     result = insertBook(book, db)
     return result
+
+# ---> add privilegence for this operation <---
+@app.post("/deleteBook")
+async def deleteBookF(book: Book, db: Session = Depends(get_db)):
+    result = deleteBook(book, db)
+    return result
     
 '''
 @app.post("/login/")
