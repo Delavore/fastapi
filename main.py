@@ -20,6 +20,10 @@ async def registerF(item: Item, db: Session = Depends(get_db)):
     result = register(db, item)
     return result
 
+@app.get("/books")
+async def getBooksF(db: Session = Depends(get_db)):
+    result = getBooks(db)
+    
 '''
 @app.post("/login/")
 async def read_users(db: Session = Depends(get_db), username: str = "", password: str = ""):
