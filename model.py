@@ -8,6 +8,12 @@ class Item(BaseModel):
     username: str
     password: str
 
+
+class Book(BaseModel):
+    bookname: str
+    author: str
+    genre: str
+
 @as_declarative()
 class Model:
     id = mapped_column(Integer, primary_key=True, autoincrement=True)
