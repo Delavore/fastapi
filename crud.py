@@ -39,9 +39,9 @@ def register(db: Session, item: Item):
 
 def getBooks(db: Session):
     with db.begin():
-        res = db.execute(select(Books3.author, Books3.bookname, Books3.genre)).scalars().all()
+        res = db.execute(select(Books3.author, Books3.bookname, Books3.genre))  # .scalars().all()
         print(res)
-        return res
+        return res.mappings().all()
 
 def insertBook(book: Book, db: Session):
     with db.begin():
