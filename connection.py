@@ -17,7 +17,7 @@ url = URL.create(
     username=User,
     password=Password,
     host=Addr,
-    database="delavore_db",
+    database="delo",
     port=5432
 )
 
