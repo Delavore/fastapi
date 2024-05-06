@@ -47,3 +47,9 @@ def insertBook(book: Book, db: Session):
     with db.begin():
         db.execute(insert(Books3).values(author=book.author, bookname=book.bookname, genre=book.genre)).scalars().all()
         return 0
+
+def deleteBook(book: Book, db: Session):
+    with db.begin():
+        db.execute(delete(Books3).where(Books3.author == book.author).where(Books3.bookname == book.bookname))
+        print("book was deleted")
+        return 0
