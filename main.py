@@ -23,6 +23,11 @@ async def registerF(item: Item, db: Session = Depends(get_db)):
 @app.get("/books")
 async def getBooksF(db: Session = Depends(get_db)):
     result = getBooks(db)
+
+@app.post("/insertBook")
+async def insertBookF(book: Book, db: Session = Depends(get_db)):
+    result = insertBook(book, db)
+    return result
     
 '''
 @app.post("/login/")
