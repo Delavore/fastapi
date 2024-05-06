@@ -42,3 +42,8 @@ def getBooks(db: Session):
         res = db.execute(select(Books3.author, Books3.bookname, Books3.genre)).scalars().all()
         print(res)
         return res
+
+def insertBook(book: Book, db: Session):
+    with db.begin():
+        db.execute(insert(Books3).values(author=book.author, bookname=book.bookname, genre=book.genre)).scalars().all()
+        return 0
