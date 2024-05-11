@@ -29,8 +29,8 @@ def login(db: Session, item: Item):
         print(token)
         deadline = (datetime.now() + timedelta(days=1)).timestamp() # time when token expires
         rd.set(token, deadline)
-        return "0"
-        #return token
+        # return "0"
+        return token
         # return 0
 
 
