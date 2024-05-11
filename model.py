@@ -8,11 +8,13 @@ class Item(BaseModel):
     username: str
     password: str
 
-
 class Book(BaseModel):
     bookname: str
     author: str
     genre: str
+
+class Token(BaseModel):
+    token: str
 
 @as_declarative()
 class Model:
