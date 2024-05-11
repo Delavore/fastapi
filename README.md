@@ -1,2 +1,2 @@
 # fastapi
-testing fastapi
+-> SQLAlchemy, Postgresql, Redis <-
