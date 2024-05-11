@@ -26,8 +26,8 @@ async def getBooksF(db: Session = Depends(get_db)):
     return result
 
 @app.post("/insertBook")
-async def insertBookF(book: Book, db: Session = Depends(get_db)):
-    result = insertBook(book, db)
+async def insertBookF(tok: Token, book: Book, db: Session = Depends(get_db)):
+    result = insertBook(tok, book, db)
     return result
 
 # ---> add privilegence for this operation <---
