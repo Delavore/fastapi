@@ -28,12 +28,12 @@ engine = create_engine(url, echo=True)
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 
 # env variables
-Host = os.getenv("HOSTRD")
-Password = os.getenv("PASSWDRD")
-Addr = os.getenv("PORTRD")
+HostRd = os.getenv("HOSTRD")
+PasswordRd = os.getenv("PASSWDRD")
+PortRd = os.getenv("PORTRD")
 
 rd = redis.Redis(
-  host='redis-10914.c1.asia-northeast1-1.gce.redns.redis-cloud.com',
-  port=10914,
-  password='zAqwgkekQvES0Xigx9rCfQVHsf4en2wW'
+  host=HostRd,
+  port=PortRd,
+  password=PasswordRd
 )
