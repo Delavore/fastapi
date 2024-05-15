@@ -1,5 +1,5 @@
 from model import *
-from sqlalchemy import create_engine, Integer, String, ForeignKey, select, insert
+from sqlalchemy import create_engine, Integer, String, ForeignKey, select, insert, delete
 from uuid import uuid4
 from datetime import datetime, timedelta
 
