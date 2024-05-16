@@ -62,8 +62,8 @@ def insertBook(tok: Token, book: Book, db: Session):
         with db.begin():
             db.execute(insert(Books3).values(author=book.author, bookname=book.bookname, genre=book.genre)).scalars().all()
             return 0
-    elif rd.get(tok.token) != None and datetime.now().timestamp() > float(rd.get(tok.token)):
-        rd.delete(tok.token)
+    #elif rd.get(tok.token) != None and datetime.now().timestamp() > float(rd.get(tok.token)):
+    #    rd.delete(tok.token)
     return -1
 
 def deleteBook(book: Book, db: Session):
