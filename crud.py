@@ -53,7 +53,7 @@ def getBooks(db: Session):
 
 def insertBook(tok: Token, book: Book, db: Session):
     print("current time", datetime.now().timestamp())
-    print("inside redis", float(rd.get(tok.token))
+    print("inside redis", float(rd.get(tok.token)))
     if rd.get(tok.token) != None and datetime.now().timestamp() <= float(rd.get(tok.token)):
         with db.begin():
             db.execute(insert(Books3).values(author=book.author, bookname=book.bookname, genre=book.genre)).scalars().all()
