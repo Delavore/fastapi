@@ -52,6 +52,7 @@ def getBooks(db: Session):
         return res.mappings().all()
 
 def insertBook(tok: Token, book: Book, db: Session):
+    print("kotlin token", tok.token)
     print("current time", datetime.now().timestamp())
     if rd.get(tok.token) != None:
         print("inside redis", float(rd.get(tok.token)))
